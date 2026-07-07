@@ -1,0 +1,465 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>株式会社WAKALIFE ｜ 採用・会社案内</title>
+  <meta name="description" content="株式会社WAKALIFE（東京・渋谷）の採用・会社案内ページ。インフラ事業・IT事業・WEB事業の3領域で社会の土台を支えます。事業内容と会社概要を掲載しています。">
+  <meta property="og:title" content="株式会社WAKALIFE ｜ 採用・会社案内">
+  <meta property="og:description" content="インフラ・IT・WEB の3領域で社会の土台を支える会社。東京・渋谷。">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#FFD400">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700;900&family=Noto+Sans+JP:wght@400;500;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --yellow:#FFD400;      /* WAKA イエロー：ロゴ由来 */
+      --yellow-deep:#F0B90B; /* 濃い黄（hover / 影） */
+      --ink:#171514;         /* 墨（安心・信頼の主役テキスト） */
+      --ink-soft:#5B5650;    /* 補助テキスト */
+      --paper:#FFFFFF;       /* 清潔な白 */
+      --paper-warm:#FBF8F0;  /* ほんのり暖色の面 */
+      --line:#EAE6DD;        /* 罫線 */
+      --focus:#0A66FF;
+
+      --display:"Zen Kaku Gothic New", system-ui, sans-serif;
+      --en:"Space Grotesk", system-ui, sans-serif;
+      --body:"Noto Sans JP", system-ui, sans-serif;
+
+      --wrap:1120px;
+      --pad:clamp(20px, 5vw, 64px);
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:var(--body);
+      color:var(--ink);
+      background:var(--paper);
+      line-height:1.8;
+      -webkit-font-smoothing:antialiased;
+      text-rendering:optimizeLegibility;
+    }
+    @media (prefers-reduced-motion:reduce){
+      html{scroll-behavior:auto}
+      *{animation:none!important;transition:none!important}
+    }
+    a{color:inherit}
+    img{max-width:100%;display:block}
+    h1,h2,h3{font-family:var(--display);font-weight:900;line-height:1.25;letter-spacing:.01em;margin:0}
+    :focus-visible{outline:3px solid var(--focus);outline-offset:3px;border-radius:4px}
+
+    .wrap{max-width:var(--wrap);margin-inline:auto;padding-inline:var(--pad)}
+
+    /* ---- 署名：見出しラベル（黄色バー）＋ マーカー下線 ---- */
+    .klabel{
+      display:inline-flex;align-items:center;gap:.85em;
+      font-family:var(--en);font-weight:600;font-size:.8rem;
+      letter-spacing:.22em;text-transform:uppercase;color:var(--ink-soft);
+      margin:0 0 1.4rem;
+    }
+    .klabel::before{content:"";width:30px;height:3px;border-radius:2px;background:var(--yellow)}
+    .klabel .jp{font-family:var(--body);letter-spacing:.06em;color:var(--ink);font-weight:700;font-size:.92rem;text-transform:none}
+    /* ヒーローのマーカーを見出しの署名として全体で再利用 */
+    .mk{background:linear-gradient(transparent 58%, var(--yellow) 58% 92%, transparent 92%);padding-inline:.1em}
+    .service .mk{color:var(--ink)} /* 暗背景：マーカー上の文字は墨色で可読性確保 */
+    .cta .mk{background:linear-gradient(transparent 58%, rgba(255,255,255,.7) 58% 92%, transparent 92%)} /* 黄背景：白マーカー */
+
+    /* ============ HEADER ============ */
+    .site-header{
+      position:sticky;top:0;z-index:50;
+      background:rgba(255,255,255,.86);backdrop-filter:blur(10px);
+      border-bottom:1px solid var(--line);
+    }
+    .nav{display:flex;align-items:center;justify-content:space-between;height:70px}
+    .brand{display:flex;align-items:center;gap:.65rem;font-family:var(--display);font-weight:900;font-size:1.02rem;letter-spacing:.02em;text-decoration:none}
+    .brand img{width:38px;height:38px;border-radius:50%}
+    .nav-links{display:flex;align-items:center;gap:clamp(1rem,2.6vw,2.2rem);list-style:none;margin:0;padding:0}
+    .nav-links a{text-decoration:none;font-weight:500;font-size:.94rem;position:relative;padding:.2rem 0}
+    .nav-links a .en{font-family:var(--en);font-size:.66rem;letter-spacing:.14em;color:var(--ink-soft);display:block;text-transform:uppercase}
+    .nav-links a::after{content:"";position:absolute;left:0;bottom:-2px;width:0;height:2px;background:var(--yellow);transition:width .28s ease}
+    .nav-links a:hover::after{width:100%}
+    .nav-cta{
+      display:inline-flex;align-items:center;gap:.5em;
+      background:var(--ink);color:#fff;text-decoration:none;font-weight:700;
+      font-size:.9rem;padding:.62rem 1.15rem;border-radius:999px;transition:transform .2s ease,background .2s ease;
+    }
+    .nav-cta:hover{background:#000;transform:translateY(-1px)}
+    .nav-cta::after{content:"→";font-family:var(--en)}
+    .nav-toggle{display:none}
+    @media (max-width:760px){
+      .brand span{font-size:.92rem}
+      .nav-links{gap:1.15rem}
+      .nav-links a{font-size:.86rem}
+      .nav-links a .en{display:none}
+    }
+    @media (max-width:430px){
+      .brand span{display:none}
+    }
+
+    /* ============ HERO ============ */
+    .hero{position:relative;overflow:hidden;background:var(--paper-warm)}
+    /* 署名：ロゴ由来の「円」を複数色・複数サイズで散らす */
+    .hero-orbs{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+    .orb{position:absolute;border-radius:50%;animation:floaty 9s ease-in-out infinite}
+    .orb.o1{width:min(58vw,520px);height:min(58vw,520px);right:-8%;top:-12%;
+      background:radial-gradient(circle at 42% 40%, #FFE45C 0%, var(--yellow) 48%, var(--yellow-deep) 100%);}
+    .orb.o2{width:190px;height:190px;right:33%;top:9%;background:#FFF0A6;animation-delay:-1.5s}
+    .orb.o3{width:118px;height:118px;right:6%;bottom:9%;background:#FF9E2C;animation-delay:-3s}
+    .orb.o4{width:168px;height:168px;right:45%;bottom:1%;background:transparent;border:2px dashed rgba(23,21,20,.18);animation-delay:-2s}
+    .orb.o5{width:76px;height:76px;right:23%;bottom:24%;background:var(--yellow-deep);animation-delay:-4s}
+    .orb.o6{width:250px;height:250px;right:16%;top:34%;background:rgba(255,255,255,.6);animation-delay:-2.6s}
+    .orb.o7{width:46px;height:46px;left:7%;bottom:15%;background:var(--yellow);opacity:.75;animation-delay:-1s}
+    @keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(16px)}}
+    .hero-inner{position:relative;z-index:1;min-height:72vh;display:flex;flex-direction:column;justify-content:center;padding-block:clamp(56px,10vw,110px)}
+    @media (max-width:600px){.orb.o2,.orb.o4,.orb.o6{display:none}}
+    .hero .badge{
+      display:inline-flex;align-items:center;gap:.55em;background:#fff;border:1px solid var(--line);
+      border-radius:999px;padding:.4rem .9rem;font-size:.82rem;font-weight:500;margin-bottom:1.6rem;
+    }
+    .hero .badge b{font-weight:700}
+    .hero .badge .pin{color:var(--yellow-deep)}
+    .hero h1{
+      font-size:clamp(2.6rem,7.4vw,5.4rem);line-height:1.12;letter-spacing:.005em;
+      max-width:15ch;
+    }
+    .hero h1 .mark{
+      background:linear-gradient(transparent 62%, var(--yellow) 62% 94%, transparent 94%);
+      padding-inline:.06em;
+    }
+    .hero .lead{
+      margin:1.9rem 0 2.4rem;max-width:46ch;font-size:clamp(1rem,1.7vw,1.18rem);
+      color:#332f2b;font-weight:500;
+    }
+    .hero .actions{display:flex;flex-wrap:wrap;gap:.9rem}
+    .btn{
+      display:inline-flex;align-items:center;gap:.55em;text-decoration:none;font-weight:700;
+      padding:.95rem 1.7rem;border-radius:999px;font-size:1rem;transition:transform .2s ease,box-shadow .2s ease,background .2s ease;
+    }
+    .btn-primary{background:var(--ink);color:#fff}
+    .btn-primary::after{content:"→";font-family:var(--en)}
+    .btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 26px -12px rgba(23,21,20,.6)}
+    .btn-ghost{background:transparent;color:var(--ink);border:1.5px solid var(--ink)}
+    .btn-ghost:hover{background:var(--ink);color:#fff}
+
+    /* 事業タグ（ヒーロー下） */
+    .hero-tags{position:relative;z-index:1;display:flex;flex-wrap:wrap;gap:.6rem;margin-top:3rem}
+    .hero-tags span{
+      font-family:var(--en);font-weight:500;font-size:.82rem;letter-spacing:.06em;
+      background:#fff;border:1px solid var(--line);border-radius:8px;padding:.4rem .8rem;
+    }
+    .hero-tags span b{font-family:var(--body);font-weight:700;margin-right:.4em}
+
+    /* ============ 共通セクション ============ */
+    .section{padding-block:clamp(64px,10vw,120px)}
+    .section-head{max-width:58ch;margin-bottom:clamp(2.4rem,5vw,3.6rem)}
+    .section-head h2{font-size:clamp(1.9rem,4.4vw,3rem)}
+    /* About 見出し（section-head の p 規則と干渉させない専用ラッパ）*/
+    .about-head{max-width:58ch;margin-bottom:clamp(2.4rem,5vw,3.4rem)}
+
+    /* ---- About（対称3カラムの価値カード）---- */
+    .about{background:var(--paper)}
+    .about-lead{font-size:clamp(1.45rem,3vw,2.2rem);font-family:var(--display);font-weight:900;line-height:1.5;max-width:26ch;margin:0;color:var(--ink)}
+    .about-body{color:var(--ink-soft);max-width:60ch;margin-top:1.4rem;font-size:1.03rem}
+    .values{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;margin-top:clamp(2.6rem,5vw,3.6rem)}
+    .value{
+      position:relative;background:#fff;border:1px solid var(--line);border-radius:20px;
+      padding:2.2rem 1.7rem 2.4rem;overflow:hidden;
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.9), 0 10px 22px -14px rgba(23,21,20,.28), 0 34px 54px -34px rgba(23,21,20,.24);
+      transition:transform .32s cubic-bezier(.2,.7,.2,1), box-shadow .32s ease;
+    }
+    .value::after{content:"";position:absolute;left:0;right:0;bottom:0;height:5px;background:linear-gradient(90deg,var(--yellow),var(--yellow-deep))}
+    .value:hover{transform:translateY(-8px);box-shadow:inset 0 1px 0 rgba(255,255,255,.9), 0 22px 32px -18px rgba(23,21,20,.34), 0 54px 74px -42px rgba(23,21,20,.32)}
+    .value .vmark{width:52px;height:52px;border-radius:15px;background:var(--yellow);color:var(--ink);display:grid;place-items:center;margin-bottom:1.1rem;box-shadow:0 10px 18px -10px rgba(240,185,11,.8)}
+    .value .vmark svg{width:26px;height:26px}
+    .value .vtag{display:block;font-family:var(--en);font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--yellow-deep);font-weight:600;margin-bottom:.35rem}
+    .value h3{font-size:1.32rem;margin:0 0 .55rem}
+    .value p{margin:0;color:var(--ink-soft);font-size:.97rem}
+
+    /* ---- Service（対称3カラム）---- */
+    .service{background:var(--ink);color:#fff}
+    .service .klabel{color:#b7b1a8}
+    .service .klabel .jp{color:#fff}
+    .service .section-head h2{color:#fff}
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1.7rem;align-items:stretch}
+    .card{
+      background:#211e1c;border:1px solid #322e2b;border-radius:22px;overflow:hidden;
+      display:flex;flex-direction:column;transition:border-color .3s ease,transform .3s ease,box-shadow .3s ease;
+    }
+    .card:hover{transform:translateY(-6px);border-color:var(--yellow);box-shadow:0 34px 54px -30px rgba(0,0,0,.75)}
+    .card-photo{
+      position:relative;aspect-ratio:4/3;overflow:hidden;display:grid;place-items:center;
+      background:radial-gradient(120% 120% at 70% 15%, #4a453f 0%, #2c2825 55%, #211e1c 100%);
+    }
+    .card-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+    .card-photo .ph{display:flex;flex-direction:column;align-items:center;gap:.7rem;color:#7a746c}
+    .card-photo .ph .icon{
+      width:60px;height:60px;border-radius:16px;background:var(--yellow);color:var(--ink);
+      display:grid;place-items:center;box-shadow:0 12px 22px -12px rgba(0,0,0,.6);
+    }
+    .card-photo .ph .icon svg{width:30px;height:30px}
+    .card-photo .ph small{font-family:var(--en);font-size:.7rem;letter-spacing:.18em;text-transform:uppercase}
+    .card-body{padding:1.8rem 1.75rem 2.15rem;display:flex;flex-direction:column;gap:.75rem}
+    .card .kicker{font-family:var(--en);font-size:.76rem;letter-spacing:.16em;color:var(--yellow);font-weight:600;text-transform:uppercase}
+    .card h3{font-size:1.5rem;color:#fff}
+    .card p{margin:0;color:#c4bfb7;font-size:1rem;line-height:1.85}
+
+    /* ---- Company（会社概要 + 地図）---- */
+    .company{background:var(--paper-warm)}
+    .company-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(1.6rem,4vw,3rem);align-items:start}
+    .facts{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden}
+    .facts th,.facts td{text-align:left;padding:1.05rem 1.3rem;border-bottom:1px solid var(--line);font-size:.97rem;vertical-align:top}
+    .facts tr:last-child th,.facts tr:last-child td{border-bottom:0}
+    .facts th{width:34%;font-family:var(--display);font-weight:700;color:var(--ink);background:#fdfbf5;white-space:nowrap}
+    .facts td{color:#3b3733;font-weight:500}
+    .facts .tel{color:var(--ink);font-family:var(--en);font-weight:700;font-size:1.18rem;letter-spacing:.02em;text-decoration:none;border-bottom:2px solid var(--yellow);padding-bottom:2px}
+    .facts .tel:hover{color:var(--yellow-deep)}
+    .map{position:relative;border-radius:18px;overflow:hidden;border:1px solid var(--line);height:100%;min-height:360px;background:#eee;box-shadow:0 30px 50px -34px rgba(23,21,20,.4)}
+    .map iframe{width:100%;height:100%;min-height:360px;border:0;display:block}
+    .map::after{content:"";position:absolute;inset:0;border-radius:18px;box-shadow:inset 0 0 0 1px rgba(23,21,20,.06);pointer-events:none}
+
+    /* ---- CTA ---- */
+    .cta{position:relative;background:var(--yellow);color:var(--ink);overflow:hidden;text-align:center}
+    .cta::before{content:"";position:absolute;left:-60px;bottom:-80px;width:260px;height:260px;border-radius:50%;border:2px dashed rgba(23,21,20,.2)}
+    .cta::after{content:"";position:absolute;right:-80px;top:-100px;width:300px;height:300px;border-radius:50%;background:rgba(255,255,255,.32)}
+    .cta-inner{position:relative;z-index:1;padding-block:clamp(64px,10vw,110px)}
+    .cta h2{font-size:clamp(2rem,5vw,3.4rem);line-height:1.24}
+    .cta p{max-width:44ch;margin:1.2rem auto 2.2rem;font-weight:500;font-size:1.06rem}
+    .cta .btn-primary{background:var(--ink);color:#fff}
+    .cta .btn-primary:hover{background:#000}
+    .cta .note{margin-top:1.3rem;font-size:.86rem;color:#6a5a12}
+
+    /* ---- Footer ---- */
+    .site-footer{background:var(--ink);color:#cfcac2;padding-block:clamp(40px,6vw,64px)}
+    .foot-top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:2rem;align-items:flex-start}
+    .foot-brand{display:flex;align-items:center;gap:.7rem;color:#fff;font-family:var(--display);font-weight:900;font-size:1.05rem}
+    .foot-brand img{width:40px;height:40px;border-radius:50%}
+    .foot-addr{font-size:.92rem;line-height:1.9;max-width:40ch}
+    .foot-nav{display:flex;gap:1.6rem;flex-wrap:wrap}
+    .foot-nav a{color:#cfcac2;text-decoration:none;font-size:.92rem}
+    .foot-nav a:hover{color:var(--yellow)}
+    .foot-bottom{margin-top:2.4rem;padding-top:1.4rem;border-top:1px solid #322e2b;font-size:.82rem;color:#8f8a82;display:flex;justify-content:space-between;flex-wrap:wrap;gap:.6rem}
+    .foot-bottom .en{font-family:var(--en);letter-spacing:.06em}
+
+    /* ---- Scroll reveal ---- */
+    .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+    .reveal.in{opacity:1;transform:none}
+    @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none}}
+
+    /* ---- Responsive ---- */
+    @media (max-width:900px){
+      .values,.cards{grid-template-columns:1fr 1fr}
+      .company-grid{grid-template-columns:1fr}
+      .map{min-height:300px}
+    }
+    @media (max-width:600px){
+      .values,.cards{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============ HEADER ============ -->
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="#top">
+        <img src="assets/logo.jpg" alt="株式会社WAKALIFE ロゴ">
+        <span>株式会社WAKALIFE</span>
+      </a>
+      <nav aria-label="メインナビゲーション">
+        <ul class="nav-links">
+          <li><a href="#about"><span>私たちについて</span><span class="en">About</span></a></li>
+          <li><a href="#service"><span>事業内容</span><span class="en">Service</span></a></li>
+          <li><a href="#company"><span>会社概要</span><span class="en">Company</span></a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- ============ HERO ============ -->
+    <section class="hero">
+      <div class="hero-orbs" aria-hidden="true">
+        <span class="orb o1"></span>
+        <span class="orb o2"></span>
+        <span class="orb o3"></span>
+        <span class="orb o4"></span>
+        <span class="orb o5"></span>
+        <span class="orb o6"></span>
+        <span class="orb o7"></span>
+      </div>
+      <div class="wrap hero-inner">
+        <h1>挑戦を、<br><span class="mark">あたりまえ</span>に。</h1>
+        <p class="lead">
+          止まってはいけないものを、止めない。<br>
+          インフラ・IT・WEB の技術で、社会と企業の毎日を支えています。
+        </p>
+      </div>
+    </section>
+
+    <!-- ============ ABOUT ============ -->
+    <section class="section about" id="about">
+      <div class="wrap">
+        <div class="about-head reveal">
+          <p class="klabel">About us <span class="jp">私たちについて</span></p>
+          <p class="about-lead">「やってみたい」を、<span class="mk">まんなか</span>に。</p>
+          <p class="about-body">
+            WAKALIFE の毎日は、小さな挑戦から始まります。
+            インフラ・IT・WEB ― 領域は違っても、目指すのはひとつ。
+            誰かの「あたりまえ」を支えながら、自分の「できる」を増やしていく。
+            経験より、これからを。未経験からでも、仲間と一緒に伸びていける会社です。
+          </p>
+        </div>
+
+        <div class="values">
+          <div class="value reveal">
+            <span class="vmark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg></span>
+            <span class="vtag">Bright</span>
+            <h3>明るく働ける</h3>
+            <p>風通しのよいフラットなチーム。若手も意見が言える、笑顔の絶えない現場を大切にしています。</p>
+          </div>
+          <div class="value reveal">
+            <span class="vmark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg></span>
+            <span class="vtag">Challenge</span>
+            <h3>挑戦を後押しする</h3>
+            <p>未経験からのスタートも歓迎。資格取得支援や研修で、「やってみたい」を全力で応援します。</p>
+          </div>
+          <div class="value reveal">
+            <span class="vmark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></span>
+            <span class="vtag">Secure</span>
+            <h3>安心して続けられる</h3>
+            <p>3事業による安定した基盤と、渋谷の拠点。腰を据えて長く働ける環境を整えています。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SERVICE ============ -->
+    <section class="section service" id="service">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <p class="klabel">Service <span class="jp">事業内容</span></p>
+          <h2>3つの<span class="mk">フィールド</span>で。</h2>
+        </div>
+        <div class="cards">
+          <article class="card reveal">
+            <div class="card-photo">
+              <img src="assets/service-infra.jpg" alt="軽貨物ドライバーが住宅街で荷物を積み込む様子" loading="lazy">
+            </div>
+            <div class="card-body">
+              <span class="kicker">Logistics</span>
+              <h3>インフラ事業</h3>
+              <p>軽貨物ドライバーによる配送・運送サービス。地域の物流を止めず、暮らしの「届く」を支える、社会インフラの現場です。</p>
+            </div>
+          </article>
+          <article class="card reveal">
+            <div class="card-photo">
+              <img src="assets/service-it.jpg" alt="オフィスでデュアルモニタに向かうエンジニア" loading="lazy">
+            </div>
+            <div class="card-body">
+              <span class="kicker">IT ・ SES</span>
+              <h3>IT事業</h3>
+              <p>SES（客先常駐）を中心に、システム開発・IT運用の現場でエンジニアが活躍。要件定義から開発・保守まで、スキルを伸ばせるフィールドを用意します。</p>
+            </div>
+          </article>
+          <article class="card reveal">
+            <div class="card-photo">
+              <img src="assets/service-web.jpg" alt="タブレットでWebサイトのデザインを確認する2人" loading="lazy">
+            </div>
+            <div class="card-body">
+              <span class="kicker">Web</span>
+              <h3>WEB事業</h3>
+              <p>Webサイト・アプリの企画・制作・開発。伝わるデザインと確かな技術で、事業の成長を後押しします。</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ COMPANY ============ -->
+    <section class="section company" id="company">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <p class="klabel">Company <span class="jp">会社概要</span></p>
+          <h2>渋谷から、<span class="mk">まっすぐ</span>に。</h2>
+        </div>
+        <div class="company-grid">
+          <table class="facts reveal">
+            <tbody>
+              <tr><th>社名</th><td>株式会社WAKALIFE</td></tr>
+              <tr><th>本店所在地</th><td>〒150-0043<br>東京都渋谷区道玄坂1丁目12番1号<br>渋谷マークシティ ウエスト22階</td></tr>
+              <tr><th>設立</th><td>2020年2月</td></tr>
+              <tr><th>事業内容</th><td>インフラ事業／IT事業／WEB事業</td></tr>
+              <tr><th>採用窓口</th><td><a href="tel:0368262360" class="tel">03-6826-2360</a></td></tr>
+            </tbody>
+          </table>
+          <div class="map reveal">
+            <iframe
+              title="株式会社WAKALIFE 所在地マップ"
+              src="https://maps.google.com/maps?q=%E6%B8%8B%E8%B0%B7%E3%83%9E%E3%83%BC%E3%82%AF%E3%82%B7%E3%83%86%E3%82%A3%20%E3%82%A6%E3%82%A8%E3%82%B9%E3%83%88&z=16&output=embed"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CTA / ENTRY ============ -->
+    <section class="cta" id="entry">
+      <div class="wrap cta-inner">
+        <h2><span class="mk">ワカライフ</span>で、<br>働いてみませんか？</h2>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="foot-top">
+        <div>
+          <div class="foot-brand">
+            <img src="assets/logo.jpg" alt="株式会社WAKALIFE ロゴ">
+            <span>株式会社WAKALIFE</span>
+          </div>
+          <p class="foot-addr">
+            〒150-0043 東京都渋谷区道玄坂1丁目12番1号<br>
+            渋谷マークシティ ウエスト22階
+          </p>
+        </div>
+        <nav class="foot-nav" aria-label="フッターナビゲーション">
+          <a href="#about">私たちについて</a>
+          <a href="#service">事業内容</a>
+          <a href="#company">会社概要</a>
+          <a href="#entry">採用エントリー</a>
+        </nav>
+      </div>
+      <div class="foot-bottom">
+        <span>© 2026 WAKALIFE Co., Ltd.</span>
+        <span class="en">Infrastructure ・ IT ・ Web</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // スクロール・リビール（reduced-motion 尊重）
+    (function(){
+      var els = document.querySelectorAll('.reveal');
+      if (!('IntersectionObserver' in window) || matchMedia('(prefers-reduced-motion: reduce)').matches){
+        els.forEach(function(el){el.classList.add('in')});
+        return;
+      }
+      var io = new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}
+        });
+      },{threshold:.16, rootMargin:'0px 0px -8% 0px'});
+      els.forEach(function(el){io.observe(el)});
+    })();
+  </script>
+</body>
+</html>
