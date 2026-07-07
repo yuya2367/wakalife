@@ -65,7 +65,7 @@
     .klabel::before{content:"";width:30px;height:3px;border-radius:2px;background:var(--yellow)}
     .klabel .jp{font-family:var(--body);letter-spacing:.06em;color:var(--ink);font-weight:700;font-size:.92rem;text-transform:none}
     /* ヒーローのマーカーを見出しの署名として全体で再利用 */
-    .mk{background:linear-gradient(transparent 58%, var(--yellow) 58% 92%, transparent 92%);padding-inline:.1em}
+    .mk{background:linear-gradient(transparent 58%, var(--yellow) 58% 92%, transparent 92%);padding-inline:.1em;white-space:nowrap;-webkit-box-decoration-break:clone;box-decoration-break:clone}
     .service .mk{color:var(--ink)} /* 暗背景：マーカー上の文字は墨色で可読性確保 */
     .cta .mk{background:linear-gradient(transparent 58%, rgba(255,255,255,.7) 58% 92%, transparent 92%)} /* 黄背景：白マーカー */
 
@@ -318,19 +318,16 @@
 
         <div class="values">
           <div class="value reveal">
-            <span class="vmark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg></span>
             <span class="vtag">Bright</span>
             <h3>明るく働ける</h3>
             <p>風通しのよいフラットなチーム。若手も意見が言える、笑顔の絶えない現場を大切にしています。</p>
           </div>
           <div class="value reveal">
-            <span class="vmark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg></span>
             <span class="vtag">Challenge</span>
             <h3>挑戦を後押しする</h3>
             <p>未経験からのスタートも歓迎。資格取得支援や研修で、「やってみたい」を全力で応援します。</p>
           </div>
           <div class="value reveal">
-            <span class="vmark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></span>
             <span class="vtag">Secure</span>
             <h3>安心して続けられる</h3>
             <p>3事業による安定した基盤と、渋谷の拠点。腰を据えて長く働ける環境を整えています。</p>
@@ -386,7 +383,6 @@
       <div class="wrap">
         <div class="section-head reveal">
           <p class="klabel">Company <span class="jp">会社概要</span></p>
-          <h2>渋谷から、<span class="mk">まっすぐ</span>に。</h2>
         </div>
         <div class="company-grid">
           <table class="facts reveal">
@@ -435,7 +431,6 @@
           <a href="#about">私たちについて</a>
           <a href="#service">事業内容</a>
           <a href="#company">会社概要</a>
-          <a href="#entry">採用エントリー</a>
         </nav>
       </div>
       <div class="foot-bottom">
