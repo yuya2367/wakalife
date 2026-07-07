@@ -66,7 +66,7 @@
     .klabel .jp{font-family:var(--body);letter-spacing:.06em;color:var(--ink);font-weight:700;font-size:.92rem;text-transform:none}
     /* ヒーローのマーカーを見出しの署名として全体で再利用 */
     .mk{background:linear-gradient(transparent 58%, var(--yellow) 58% 92%, transparent 92%);padding-inline:.1em;white-space:nowrap;-webkit-box-decoration-break:clone;box-decoration-break:clone}
-    .service .mk{color:var(--ink)} /* 暗背景：マーカー上の文字は墨色で可読性確保 */
+    .service .mk{background:var(--yellow);color:var(--ink);border-radius:5px;padding:.04em .2em} /* 暗背景：下線マーカーだと文字上部が背景と同化するため、塗り＋墨文字のハイライトに */
     .cta .mk{background:linear-gradient(transparent 58%, rgba(255,255,255,.7) 58% 92%, transparent 92%)} /* 黄背景：白マーカー */
 
     /* ============ HEADER ============ */
@@ -129,7 +129,7 @@
     }
     .hero h1 .mark{
       background:linear-gradient(transparent 62%, var(--yellow) 62% 94%, transparent 94%);
-      padding-inline:.06em;
+      padding-inline:.06em;white-space:nowrap;-webkit-box-decoration-break:clone;box-decoration-break:clone;
     }
     .hero .lead{
       margin:1.9rem 0 2.4rem;max-width:46ch;font-size:clamp(1rem,1.7vw,1.18rem);
@@ -294,10 +294,10 @@
         <span class="orb o7"></span>
       </div>
       <div class="wrap hero-inner">
-        <h1>挑戦を、<br><span class="mark">あたりまえ</span>に。</h1>
+        <h1>若い力で、<br>この国を<span class="mark">変える</span>。</h1>
         <p class="lead">
-          止まってはいけないものを、止めない。<br>
-          インフラ・IT・WEB の技術で、社会と企業の毎日を支えています。
+          社名の WAKALIFE は「若者（WAKA）の人生（LIFE）」。<br>
+          若い力で社会を動かし、一人ひとりの人生を豊かに ― インフラ・IT・WEB の会社です。
         </p>
       </div>
     </section>
